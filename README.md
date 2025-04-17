@@ -4,6 +4,9 @@ This package was built as the final summary assignment for the University of Rho
 
 The purpose of this package is to allow network scientists to programmatically apply continous time quantum random walks on their own networks without needing signficant quantum preparation or onboarding.m This is alos meant as a begginer-friendly introductionn to quantu circuits which is why every effort has been made to simplify parameters and inputs as much as possible. 
 
+#### Note: 
+All quantum walks are currrently limited to the Aer_simulator Sampler subroutine
+
 ## Capabilities: 
 
 __Included Capabilities:__
@@ -11,11 +14,13 @@ __Included Capabilities:__
 1. Quantum walk from a single start node evolving outward (e^{-iAt}).
 2. Quantum walk from a single start node evolving inward (e^{iAt}).
 3. Quantum walk from a superposition of all nodes.
+4. Post-processing to decimal representation for all nodes and edge connections
 
 __Planned Capabilities:__
 
 1. Pre-processing for specific network formats such as Gephi-csv exports
-2. Post-processing utilities for extracting summary statistics and analyzing distributions.
+2. Support job-submission to IBM hardware
+3. Post-processing utilities for extracting summary statistics and analyzing distributions.
 
 __Assumptions:__
 
