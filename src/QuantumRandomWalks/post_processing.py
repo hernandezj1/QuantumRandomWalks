@@ -1,10 +1,48 @@
 """
-Post-processing functions
+Quantum Walk Post-Processing Module
+===================================
 
+This module provides tools for post-processing the results of quantum walk simulations,
+particularly those using Qiskit's quantum circuits for modeling node transitions in graphs.
 
+Main Use Cases:
+---------------
+1. **Post-processing results from superposition walks**, where the walker starts in a superposition state.
+2. **Post-processing results from single-node walks**, where the walker starts from a single node.
 
+Core Class:
+-----------
+- `ResultsDataframe`: Encapsulates a pandas DataFrame with quantum walk results and provides
+  methods to filter, summarize, and reformat the data.
+
+Available Methods:
+------------------
+ResultsDataframe(df):
+    Initialize the post-processing class with a pandas DataFrame.
+
+- `postprocess_superposition(A)`:
+    Removes real edges and self-loops based on adjacency matrix `A`, then adds max/avg summary rows,
+    and converts column names to decimal format.
+
+- `postprocess_one_node()`:
+    Adds max and average probability rows to results from a single-node walk.
+
+- `add_max_and_avg()`:
+    Appends rows showing maximum and average probabilities across all columns (excluding 'Time').
+
+- `filter_connected_columns(A)`:
+    Removes columns corresponding to real graph edges and self-connections using the adjacency matrix `A`.
+
+- `convert_to_decimal()`:
+    Renames columns from binary format (e.g., '001 010') to decimal format (e.g., '1-2') for better readability.
+
+Typical Workflow:
+-----------------
+```python
+rdf = ResultsDataframe(df)
+rdf.postprocess_superposition(A)  # For superposition walk results
+rdf.postprocess_one_node()        # For single-node walk results
 """
-
 
 
 import numpy as np
